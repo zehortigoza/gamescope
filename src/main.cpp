@@ -873,28 +873,35 @@ int main(int argc, char **argv)
 	{
 #if HAVE_DRM
 		case gamescope::GamescopeBackend::DRM:
+			printf("set drm backend\n");
 			gamescope::IBackend::Set<gamescope::CDRMBackend>();
 			break;
 #endif
 #if HAVE_SDL2
 		case gamescope::GamescopeBackend::SDL:
+			printf("set sdl backend\n");
 			gamescope::IBackend::Set<gamescope::CSDLBackend>();
 			break;
 #endif
 #if HAVE_OPENVR
 		case gamescope::GamescopeBackend::OpenVR:
+			printf("set openvr backend\n");
 			gamescope::IBackend::Set<gamescope::COpenVRBackend>();
 			break;
 #endif
 		case gamescope::GamescopeBackend::Headless:
+			printf("set headless backend\n");
 			gamescope::IBackend::Set<gamescope::CHeadlessBackend>();
 			break;
 
 		case gamescope::GamescopeBackend::Wayland:
+			printf("set wayland backend\n");
 			gamescope::IBackend::Set<gamescope::CWaylandBackend>();
 #if HAVE_SDL2
-			if ( !GetBackend() )
+			if ( !GetBackend() ) {
+				printf("set fallback wayland to sdl backend\n");
 				gamescope::IBackend::Set<gamescope::CSDLBackend>();
+			}
 #endif
 			break;
 		default:

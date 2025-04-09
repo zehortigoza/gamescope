@@ -3310,6 +3310,7 @@ bool vulkan_make_output()
 
 	VkResult result;
 	
+	printf("vulkan_make_output() UsesVulkanSwapchain()=%d\n", GetBackend()->UsesVulkanSwapchain());
 	if ( GetBackend()->UsesVulkanSwapchain() )
 	{
 		result = g_device.vk.GetPhysicalDeviceSurfaceCapabilitiesKHR( g_device.physDev(), pOutput->surface, &pOutput->surfaceCaps );
