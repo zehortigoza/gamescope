@@ -2221,7 +2221,7 @@ bool CVulkanTexture::BInit( uint32_t width, uint32_t height, uint32_t depth, uin
 		VkImportMemoryFdInfoKHR importMemoryInfo = {};
 		VkExportMemoryAllocateInfo memory_export_info = {};
 		VkMemoryDedicatedAllocateInfo memory_dedicated_info = {};
-		struct wsi_memory_allocate_info memory_wsi_info = {}
+		struct wsi_memory_allocate_info memory_wsi_info = {};
 
 		if ( flags.bFlippable == true )
 		{
